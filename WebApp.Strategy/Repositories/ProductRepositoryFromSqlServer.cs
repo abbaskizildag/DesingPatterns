@@ -18,13 +18,14 @@ namespace WebApp.Strategy.Repositories
             return await context.Products.Where(x=>x.UserId == userId).ToListAsync();
         }
 
-        public async Task<Product> GetById(int id)
+        public async Task<Product> GetById(string id)
         {
             return await context.Products.FindAsync(id);
         }
 
         public async Task<Product> Save(Product product)
         {
+            product.Id  = Guid.NewGuid().ToString();
             await context.Products.AddAsync(product);
             await context.SaveChangesAsync();
 

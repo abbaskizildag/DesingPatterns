@@ -4,7 +4,7 @@ namespace WebApp.Strategy.Repositories
 {
     public interface IProductRepository
     {
-        Task<Product> GetById(int id);
+        Task<Product> GetById(string id);
         Task<List<Product>> GetAllByUserId(string userId);
 
         Task<Product> Save(Product product);

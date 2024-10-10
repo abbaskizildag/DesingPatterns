@@ -10,7 +10,7 @@ namespace WebApp.Strategy.Models
         [BsonId] //MongoDb direkt isimden Id'yi Key olarak anlayamıyor. Belirtiriyoruz
         [Key]
         [BsonRepresentation(BsonType.ObjectId)]
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string Name { get; set; }
         [Column(TypeName = "decimal(18,2)")]
         [BsonRepresentation(BsonType.Decimal128)]
