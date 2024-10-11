@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using BaseProject.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using BaseProject.Models;
 using WebApp.Strategy.Models;
 using WebApp.Strategy.Repositories;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Authorization;
 
 namespace WebApp.Strategy.Controllers
 {
@@ -67,8 +62,9 @@ namespace WebApp.Strategy.Controllers
             if (ModelState.IsValid)
             {
                 var user = await _userManager.FindByNameAsync(User.Identity.Name);
-
+                
                 product.UserId = user.Id;
+                product.Id = null;
                 product.CreatedDate = DateTime.Now;
                 await _productRepository.Save(product);
                 return RedirectToAction(nameof(Index));

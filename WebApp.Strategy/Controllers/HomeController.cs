@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using WebApp.Strategy.Models;
 
-namespace BaseProject.Controllers
+namespace WebApp.Strategy.Controllers
 {
     public class HomeController : Controller
     {
